@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { collection, Firestore, getDocs, deleteDoc, doc } from '@angular/fire/firestore';
+import { collection, Firestore, getDocs, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
 import { getStorage, ref, listAll, Storage, getDownloadURL } from '@angular/fire/storage';
 @Component({
   selector: 'app-edit-produtos',
@@ -10,7 +10,7 @@ export class EditProdutosPage implements OnInit {
   isToastOpen = false;
   produtos: any = []
   isModalOpen = false;
-  produto={
+  produto:any={
     id:'',
     nome:'',
     descricao:'',
@@ -45,6 +45,7 @@ export class EditProdutosPage implements OnInit {
 
   CarregaProdutos(isOpen: boolean,id: any, nome: any, descricao: any, preco: any, qtd: any, image:any){
     this.isModalOpen = isOpen;
+    this.produto.id=id
     this.produto.nome=nome
     this.produto.descricao=descricao
     this.produto.preco=preco
@@ -54,6 +55,15 @@ export class EditProdutosPage implements OnInit {
 
   EditarProduto(nomeProduto:any, descProduto:any, precoProduto:any, qtdProduto:any) {
     console.log('produto Editado')
+    const produto = {
+      nome:this.produto.nome,
+      descricao:this.produto.descricao,
+      preco:this.produto.preco,
+      qtd:this.produto.qtd,
+      image:this.produto.image
+    }
+    const document = doc(collection(this.firestore, 'Produtos',this.produto.id));
+    return updateDoc(document, produto);
   }
 
 }

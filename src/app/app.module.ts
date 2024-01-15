@@ -11,12 +11,12 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAZWFYHxlCCF6E6OqRwqiY75HzwtUxUfXQ",
-  authDomain: "pretocheiroso-b765c.firebaseapp.com",
-  projectId: "pretocheiroso-b765c",
-  storageBucket: "pretocheiroso-b765c.appspot.com",
-  messagingSenderId: "538476384337",
-  appId: "1:538476384337:web:ce5e747382d659a81e6870"
+  apiKey: "AIzaSyBgSOCUt7-GrcF7-vX04-8jAVpsfd8YJds",
+  authDomain: "pretocheiroso-4c9a6.firebaseapp.com",
+  projectId: "pretocheiroso-4c9a6",
+  storageBucket: "pretocheiroso-4c9a6.appspot.com",
+  messagingSenderId: "1037107559412",
+  appId: "1:1037107559412:web:db234b032b3cf0e5bb97a1"
 };
 
 @NgModule({
